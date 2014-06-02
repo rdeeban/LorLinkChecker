@@ -1,0 +1,79 @@
+<div id="analysis-graph" class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Analysis</h3>
+            </div>
+            <div id="chart">
+                <svg></svg>
+            </div>
+            <div id="statistic"></div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Search</h3>
+            </div>
+            <form onsubmit="return false;" role="form">
+                <fieldset>
+                    <br>
+                    <div class="form-group col-lg-10">
+                        <input id='link' class="form-control" placeholder="URL"/>
+                        <div class="col-lg-12"></div>
+                        <input id='path' class="form-control" placeholder="S3 Key"/>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-2">
+                        <p>Size of File</p>
+                        <select class="form-control" id='operator'>
+                            <option><</option>
+                            <option><=</option>
+                            <option>==</option>
+                            <option selected=selected>>=</option>
+                            <option>></option>
+                        </select>
+                        <input id='size' class="form-control" placeholder="size of file" value="0"/>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-2">
+                        <button class="btn btn-success"
+                                onclick="localStorage.setItem('curPage',0);search($('#link').val(),$('#path').val(),$('#operator').val(),$('#size').val())">
+                            Search
+                        </button>
+                    </div>
+                    <div class="col-lg-2">
+                        <button class="btn btn-info" onclick="window.location='/llc/csv/links';">
+                            Download CSV
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="panel-body">
+                Number of results: <a id='num-results'>0</a>
+                <div id='template-table' class="table-responsive">
+                    <!-- table content goes here - do not edit -->
+                </div>
+                <div id="num-pages"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="shortModal" class="modal modal-wide fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">S3 Key</h4>
+            </div>
+            <div class="modal-body">
+                <p id="s3key"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+$("#analysis-graph").hide();
+</script>

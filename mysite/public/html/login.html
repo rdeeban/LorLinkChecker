@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Login</h3>
+            </div>
+            <form onsubmit="return false;" role="form">
+                <fieldset>
+                    <br>
+                    <div class="form-group col-lg-5">
+                        <input id='admin-key' class="form-control" placeholder="Administrator Key"/>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-2">
+                        <button class="btn btn-success" onclick="if(login($('#admin-key').val())['message'] == 'success'){localStorage.setItem('login','y');window.location = '';}">Login
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

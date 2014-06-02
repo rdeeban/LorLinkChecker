@@ -1,0 +1,24 @@
+<table id="link-table" class="table table-bordered table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>URL</th>
+            <th>Location (click to view full s3 key)</th>
+            <th>Size</th>
+            <th>Info</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#links}}
+        <tr>
+            <td>{{date}}</td>
+            <td>{{time}}</td>
+            <td><a target='_blank' href={{link}}>{{name}}</a></td>
+            <td data-toggle="modal" data-target="#shortModal" onmouseover="this.style.cursor='pointer'; this.style.color = 'rgb(255,150,150)'; $('#s3key').html('{{subpath}}');" onmouseout="this.style.color = ''" class="small">{{location}}</td>
+            <td>{{size}}</td>
+            <td><button class="btn btn-info" onclick="constructGraph('{{link}}')" >Analyze</button></td>
+        </tr>
+        {{/links}}
+    </tbody>
+</table>

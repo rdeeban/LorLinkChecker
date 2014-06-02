@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Launch Panel</h3>
+            </div>
+            <form onsubmit="return false;" role="form">
+                <fieldset>
+                    <br>
+                    <div class="form-group col-lg-10">
+                        <input id='link_path' class="form-control" placeholder="S3 Key"/>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-2">
+                        <button class="btn btn-success" onclick="suggest($('#link_path').val())">Suggestions?
+                        </button>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-10">
+                        <select size="0" onchange="$('#link_path').val($(this).val())" class="form-control"
+                                multiple id="suggestions">
+                        </select>
+                    </div>
+                    <div class="col-lg-12"></div>
+                    <div class="form-group col-lg-2">
+                        <button class="btn btn-success" onclick="getLinks($('#link_path').val())">Launch
+                        </button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Threads</h3>
+            </div>
+            <div class="panel-body">
+                <div id='template-table-thread' class="table-responsive">
+                    <!-- table content goes here - do not edit -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="shortModal2" class="modal modal-wide fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">S3 Key</h4>
+            </div>
+            <div class="modal-body">
+                <p id="s3key2"></p>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    data = {"threads": readThreads()};
+    table2();
+</script>

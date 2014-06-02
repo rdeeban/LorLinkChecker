@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Deeban Ramalingam">
+    <title>LLC Admin</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/sb-admin.css">
+    <link rel="stylesheet" href="css/nv.d3.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+</head>
+<body>
+<img id="load" style="position: fixed; left: 30%; top: 10%" src="loading.gif" width="400" height="400"/>
+<div id="wrapper">
+    <div id="nav-wrapper"></div>
+    <div id="page-wrapper"></div>
+    <br/>
+    <br/>
+    <br/>
+</div>
+<footer style="position: fixed; bottom: 0px; height: 9%; background-color: rgb(40,40,40); color: white" class="footer col-lg-12"><div style="position: relative; top: 0px;">Author: Deeban Ramalingam<br/>Company: Idaho Digital Learning Academy<br/>Email: <a href="mailto:intern.deeban.ramalingam@idla.k12.id.us">intern.deeban.ramalingam@idla.k12.id.us</a></div></footer>
+<script src="js/lib/jquery-1.10.2.js"></script>
+<script src="js/lib/bootstrap.js"></script>
+<script src="js/lib/mustache.js"></script>
+<script src="js/lib/taffy.js"></script>
+<script src="js/lib/lib.js"></script>
+<script src="js/nvd3/d3.v3.min.js"></script>
+<script src="js/nvd3/nv.d3.js"></script>
+<script>
+    $("#nav-wrapper").load("html/nav.html");
+    if (localStorage.getItem('current_page') != null) {
+        view("#page-wrapper",localStorage.getItem('current_page'));
+    }
+</script>
+</body>
+</html>
